@@ -1,2 +1,2 @@
 # TypeReal
-TypeReal is python program which converts given text to hand written looking images
+A text to hand-writing python utility to complete your assignment
