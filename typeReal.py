@@ -33,7 +33,6 @@ with open(inputfile, mode='r') as f:
             img.close()
             img = Image.open("A4sheet.jpg")
             d = ImageDraw.Draw(img)
-            #d.rectangle((0, 0, img.width, img.height), fill = (255, 255, 255))
             imgCount += 1
 
         d.text((50, 40 + 40*lineCount), line, font = fnt, fill = (0, 0x2b, 0x59))
