@@ -21,6 +21,8 @@ if not isfile(inputfile):
     raise exception("{} coesn't exist".format(inputfile))
 if not isfile(fontfile):
     raise Exception("{} doesn't exist".format(fontfile))
+if not isfile(bgImageFile):
+    raise Exception("{} doesn't exist".format(bgImageFile))
 
 img = Image.open(bgImageFile)
 d = ImageDraw.Draw(img)
