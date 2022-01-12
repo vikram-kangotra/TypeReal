@@ -29,7 +29,7 @@ with open(inputfile, mode='r') as f:
     for idx, line in enumerate(lines):
         lineCount = idx % LinesOnPage + 1
         if lineCount == LinesOnPage or idx == TotalLines - 1:
-            img.save(out[0] + str(imgCount) + '.' + out[1])
+            img.save(out[0] + '_' + str(imgCount) + '.' + out[1])
             img.close()
             img = Image.open("A4sheet.jpg")
             d = ImageDraw.Draw(img)
