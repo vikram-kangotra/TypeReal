@@ -2,9 +2,9 @@
 A text to hand-writing python utility to complete your assignment
 # Usage
 ```
-usage: typeReal.py [-h] -i IFILE -o OFILE
+usage: typeReal.py [-h] -i IFILE -o OFILE [-f FONT]
 
-Text to Handwriting converter
+Text to hand-writing converter
 
 optional arguments:
   -h, --help            show this help message and exit
@@ -12,6 +12,8 @@ optional arguments:
                         The input file
   -o OFILE, --ofile OFILE
                         The output file
+  -f FONT, --font FONT  The font file to use
+                                              
 ```                                        
 # Sample Output
 ![alt Sample](https://github.com/vikram-kangotra/TypeReal/blob/main/Sample/sample1_0.png)
