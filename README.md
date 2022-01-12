@@ -1,5 +1,5 @@
 # TypeReal
-A text to hand-writing python utility to complete your assignment :)
+A text to hand-writing python script to complete your assignment :)
 # Usage
 ```
 usage: typeReal.py [-h] -i IFILE -o OFILE [-f FONT] [-b BACKGROUND]
