@@ -24,13 +24,13 @@ if not isfile(fontfile):
 if not isfile(bgImageFile):
     raise Exception("{} doesn't exist".format(bgImageFile))
 
-bgImg = Image.open(bgImageFile)
-d = ImageDraw.Draw(bgImg)
+img = Image.open(bgImageFile)
+d = ImageDraw.Draw(img)
 
 fontSize = 40
 fnt = ImageFont.truetype(fontfile, size = fontSize)
 
-LinesOnPage = int(bgImg.height / fontSize) - 2
+LinesOnPage = int(img.height / fontSize) - 2
 
 with open(inputfile, mode='r') as f:
     text = f.read()
@@ -41,10 +41,10 @@ with open(inputfile, mode='r') as f:
     for idx, line in enumerate(lines):
         lineCount = idx % LinesOnPage + 1
         if lineCount == LinesOnPage or idx == TotalLines - 1:
-            bgImg.save("{}_{}.{}".format(out[0], imgCount, out[1]))
-            bgImg.close()
-            bgImg = Image.open(bgImageFile)
-            d = ImageDraw.Draw(bgImg)
+            img.save("{}_{}.{}".format(out[0], imgCount, out[1]))
+            img.close()
+            img = Image.open(bgImageFile)
+            d = ImageDraw.Draw(img)
             imgCount += 1
 
         d.text((50, 40 + 40*lineCount), line, font = fnt, fill = (0, 0x2b, 0x59))
