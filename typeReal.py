@@ -8,19 +8,21 @@ parser = argparse.ArgumentParser(description="Text to hand-writing converter")
 parser.add_argument('-i', '--ifile', type=str, required=True, help="The input file")
 parser.add_argument('-o', '--ofile', type=str, required=True, help="The output file")
 parser.add_argument('-f', '--font', type=str, required=False, help="The font file to use")
+parser.add_argument('-b', '--background', type=str, required=False, help="The background image file")
 
 args = parser.parse_args()
 
 inputfile = args.ifile
 outputfile = args.ofile
 fontfile = 'Vikram-Regular.ttf' if args.font is None else args.font
+bgImageFile = 'A4sheet.jpg' if args.background is None else args.background
 
 if not isfile(inputfile):
     raise exception("{} coesn't exist".format(inputfile))
 if not isfile(fontfile):
     raise Exception("{} doesn't exist".format(fontfile))
 
-img = Image.open("A4sheet.jpg")
+img = Image.open(bgImageFile)
 d = ImageDraw.Draw(img)
 
 fontSize = 40
@@ -39,7 +41,7 @@ with open(inputfile, mode='r') as f:
         if lineCount == LinesOnPage or idx == TotalLines - 1:
             img.save("{}_{}.{}".format(out[0], imgCount, out[1]))
             img.close()
-            img = Image.open("A4sheet.jpg")
+            img = Image.open(bgImageFile)
             d = ImageDraw.Draw(img)
             imgCount += 1
 
