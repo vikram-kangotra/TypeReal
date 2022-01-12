@@ -3,7 +3,7 @@
 from PIL import Image, ImageDraw, ImageFont
 import argparse
 
-parser = argparse.ArgumentParser(description="Text to Handwriting converter")
+parser = argparse.ArgumentParser(description="Text to hand-writing converter")
 parser.add_argument('-i', '--ifile', type=str, required=True, help="The input file")
 parser.add_argument('-o', '--ofile', type=str, required=True, help="The output file")
 
