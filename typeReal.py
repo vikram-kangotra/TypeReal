@@ -1,22 +1,30 @@
 #!/bin/env python3
 
 from PIL import Image, ImageDraw, ImageFont
+from os.path import isfile
 import argparse
 
 parser = argparse.ArgumentParser(description="Text to hand-writing converter")
 parser.add_argument('-i', '--ifile', type=str, required=True, help="The input file")
 parser.add_argument('-o', '--ofile', type=str, required=True, help="The output file")
+parser.add_argument('-f', '--font', type=str, required=False, help="The font file to use")
 
 args = parser.parse_args()
 
 inputfile = args.ifile
 outputfile = args.ofile
+fontfile = 'Vikram-Regular.ttf' if args.font is None else args.font
+
+if not isfile(inputfile):
+    raise exception("{} coesn't exist".format(inputfile))
+if not isfile(fontfile):
+    raise Exception("{} doesn't exist".format(fontfile))
 
 img = Image.open("A4sheet.jpg")
 d = ImageDraw.Draw(img)
 
 fontSize = 40
-fnt = ImageFont.truetype('Vikram-Regular.ttf', size = fontSize)
+fnt = ImageFont.truetype(fontfile, size = fontSize)
 
 LinesOnPage = int(img.height / fontSize) - 2
 
